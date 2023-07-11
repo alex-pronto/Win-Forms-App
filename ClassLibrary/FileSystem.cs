@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System;
+using System.IO;
+using System.Linq;
 
-internal class FileSystem
+public class FileSystem
 {
     public string FileDBName;
     public string FileFolderPath;
@@ -17,7 +19,7 @@ internal class FileSystem
     }
 
 
-    public void SaveUsersToDB(List<User> users)
+     public void SaveUsersToDB(List<User> users)
     {
 
         string serializedUsers = JsonConvert.SerializeObject(users);
@@ -26,10 +28,7 @@ internal class FileSystem
     }
 
 
-
-
-
-    public void SaveUsersToDB(User user)
+     public void SaveUsersToDB(User user)
     {
 
         List<User> AllCurrentUsers = ReadAllUsersFromDB();
@@ -46,12 +45,7 @@ internal class FileSystem
 
 
 
-
-
-
-
-
-    public List<User> ReadAllUsersFromDB()
+     public List<User> ReadAllUsersFromDB()
     {
 
         string json = File.ReadAllText(DBFilePath);
@@ -66,7 +60,7 @@ internal class FileSystem
 
 
 
-    public void SaveQuestionsToDB(List<Question> questions)
+     public void SaveQuestionsToDB(List<Question> questions)
     {
 
         string serializedQuestions = JsonConvert.SerializeObject(questions);
@@ -76,7 +70,7 @@ internal class FileSystem
 
 
     // метод для сохранения введенного вопроса  
-    public void SaveQuestionsToDB(Question question)
+     void SaveQuestionsToDB(Question question)
     {
         List<Question> AllCurrentQuestions = ReadQuestionsFromDB();
         //int lastNumber = AllCurrentQuestions.Count == 0 ? 0 : AllCurrentQuestions.Last().Number;
@@ -91,7 +85,7 @@ internal class FileSystem
     }
 
 
-    public List<Question> ReadQuestionsFromDB()
+        public List<Question> ReadQuestionsFromDB()
     {
 
         string json = File.ReadAllText(DBFilePath);

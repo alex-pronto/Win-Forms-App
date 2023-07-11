@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 
 
-class Question
+public class Question
 {
 
     public string Text;

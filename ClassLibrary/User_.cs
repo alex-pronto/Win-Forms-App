@@ -2,8 +2,8 @@
 
 public class User // класс Юзер
 {
-    public string Name { get;   private set; } // свойства класса 
-    public string Surname { get;   private set; }
+    public string Name { get; private set; } // свойства класса 
+    public string Surname { get; private set; }
     public int Id { get; private set; }
     public int CountRightAnswers { get; private set; }
     public string Diagnose { get; private set; }
